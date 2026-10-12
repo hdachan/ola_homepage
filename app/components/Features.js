@@ -37,6 +37,10 @@ const FEATURES = [
 
 const STEP_VH = 60; // 카드 하나당 스크롤 거리 (화면 높이의 %)
 
+// 카드 하나당 스크롤 거리(px): 섹션 높이(100vh + 카드수×60vh)에서 거꾸로 계산
+// → 휴대폰 주소창이 접혔다 펴져 window.innerHeight 가 바뀌어도 값이 흔들리지 않음
+const stepOf = (el) => (el.offsetHeight / (100 + FEATURES.length * STEP_VH)) * STEP_VH;
+
 // 카카오 '문화' 페이지 방식: 하나만 열림. 카드가 아래로 펼쳐진 뒤 글씨가 천천히 떠오름
 // 섹션이 화면에 고정(sticky)된 동안 스크롤하면 카드가 하나씩 차례로 열림
 export default function Features() {
@@ -48,7 +52,7 @@ export default function Features() {
     const onScroll = () => {
       const el = scrollRef.current;
       if (!el) return;
-      const step = (window.innerHeight * STEP_VH) / 100;
+      const step = stepOf(el);
       const passed = 64 - el.getBoundingClientRect().top; // 상단바(64px) 아래에 붙은 시점부터 계산
       const idx = Math.min(FEATURES.length - 1, Math.max(0, Math.floor(passed / step)));
       setOpen(idx);
@@ -67,7 +71,7 @@ export default function Features() {
   // 카드를 누르면 해당 카드가 열리는 스크롤 위치로 이동
   const goTo = (i) => {
     const el = scrollRef.current;
-    const step = (window.innerHeight * STEP_VH) / 100;
+    const step = stepOf(el);
     const top = el.getBoundingClientRect().top + window.scrollY - 64 + i * step + 1;
     window.scrollTo({ top, behavior: "smooth" });
   };

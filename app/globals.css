@@ -1147,3 +1147,9 @@ h2.features-title { text-align: center; font-size: clamp(24px, 2.4vw, 34px); col
 @media (max-width: 768px) {
   .hero { padding-bottom: calc(100vw * 0.30 + 130px); }
 }
+
+/* 모바일 전용: "왜 올라! 펫보험이어야 할까요?" 섹션 위아래 여백 조금 더 (PC는 그대로) */
+@media (max-width: 768px) {
+  .features-sticky { padding-top: 48px; padding-bottom: 32px; }
+  .features-cat-m { padding-bottom: 52px; }
+}
