@@ -1100,11 +1100,8 @@ h2.features-title { text-align: center; font-size: clamp(24px, 2.4vw, 34px); col
 .review .cv-review-label { margin-bottom: 10px; font-weight: 600; color: var(--accent-pink); }
 .review .board-review { margin-top: 40px; }
 
-/* 특장점 제목 속 핵심 단어: 브랜드 녹색 */
-.feature-em { font-style: normal; color: var(--primary); }
-
-/* 특장점 제목 속 핵심 단어: 브랜드 녹색 */
-.feature-em { font-style: normal; color: var(--primary); }
+/* 특장점 제목 속 핵심 단어 */
+.feature-em { font-style: normal; color: var(--primary); } /* 브랜드 녹색 */
 
 /* ===== 개인정보 처리방침 페이지 ===== */
 .policy { padding-top: 24px; padding-bottom: 120px; }
@@ -1127,4 +1124,26 @@ h2.features-title { text-align: center; font-size: clamp(24px, 2.4vw, 34px); col
   .policy { padding-top: 16px; padding-bottom: 72px; }
   .policy-doc { margin-top: 28px; font-size: 15px; }
   .policy-dates { flex-direction: column; gap: 6px; }
+}
+
+/* 모바일 전용: 첫 화면 제휴 표기·설명 문구를 페이퍼로지 한 단계 두껍게 (PC는 그대로)
+   이마트 몰리스 × DB손해보험: 4 Regular → 5 Medium / 특약포함 설계가 필요없는 원플랜: 3 Light → 4 Regular */
+@media (max-width: 768px) {
+  .hero-eyebrow { font-weight: 500; }
+  .hero-sub { font-weight: 400; }
+}
+
+/* 모바일 전용: 2번째 섹션(연락처) 전체를 살짝 작게 + 위아래 여백 축소 (PC는 그대로)
+   고양이·강아지는 지금처럼 1번째 섹션 맨 아래에 그대로 */
+@media (max-width: 768px) {
+  .contact { padding: 24px 0; }
+  .contact .contact-card { height: 66px; padding: 0 20px; }
+  .contact .contact-text strong { font-size: 15px; }
+  .contact .contact-text > span { font-size: 12.5px; }
+  .contact .contact-icon svg { width: 22px; height: 22px; }
+}
+
+/* 모바일 전용: 버튼과 고양이·강아지 사이 간격 넓히기 (그림은 섹션 맨 아래 그대로, PC는 그대로) */
+@media (max-width: 768px) {
+  .hero { padding-bottom: calc(100vw * 0.30 + 130px); }
 }
