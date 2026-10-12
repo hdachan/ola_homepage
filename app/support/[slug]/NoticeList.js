@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import useReview from "../../components/useReview";
 
 // 공지사항: 일반 게시판 형식 (목록: 번호·제목·등록일 → 제목을 누르면 글 보기 → 목록으로)
 // 새 공지는 맨 위에 추가하면 됨 (번호는 자동)
@@ -57,6 +58,7 @@ const NOTICES = [
 
 export default function NoticeList() {
   const [view, setView] = useState(null); // 보고 있는 글 번호 (null = 목록)
+  const review = useReview(); // 심의용 캡처 모드: 목록 아래에 모든 글 본문을 이어서 보여줌
 
   // 글 보기
   if (view !== null) {
@@ -108,6 +110,19 @@ export default function NoticeList() {
           ))}
         </tbody>
       </table>
+      {review &&
+        NOTICES.map((n) => (
+          <article key={n.title} className="board-view board-review">
+            <header className="board-view-head">
+              <h3>{n.title}</h3>
+              <p className="board-meta">
+                <span>관리자</span>
+                <span>{n.date}</span>
+              </p>
+            </header>
+            <div className="board-view-body notice-body">{n.body}</div>
+          </article>
+        ))}
     </div>
   );
 }

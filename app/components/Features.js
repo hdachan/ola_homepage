@@ -5,11 +5,13 @@ import { useEffect, useRef, useState, Fragment } from "react";
 const FEATURES = [
   {
     title: "12세까지 가입, 갱신 시 20세까지",
+    strong: ["12세","20세"], // 녹색으로 강조할 단어
     points: ["생애주기 맞춤형으로 평생보장 가능해요."],
   },
   {
     // 제목 안 \n 은 줄바꿈으로 표시됨
     title: "입원·수술·통원 상관없이\n1사고당 7백만원 한도 내|횟수제한이 없어요.(연간 3천만원)",
+    strong: ["1사고당 7백만원"], // 녹색으로 강조할 단어
     points: [
       "자부담금 3만원, 보상비율 70%",
       "가입기간 내 발생한 만성질환에 도움돼요.",
@@ -18,14 +20,17 @@ const FEATURES = [
   },
   {
     title: "기다림은 짧게! 상해는 가입 즉시,\n질병은 30일, 슬·고관절 관련은|90일부터 보장",
+    strong: ["30일","90일"], // 녹색으로 강조할 단어
     points: ["슬개골·고관절 대기기간이 짧아 일찍 보장해 안심이 돼요."],
   },
   {
     title: "배상책임 3천만원",
+    strong: ["3천만원"], // 녹색으로 강조할 단어
     points: ["자부담금 3만원, 보상비율 100%", "혹시 모를 사고(대인·대동물)에 든든하게 보장해요."],
   },
   {
     title: "설계가 필요없는 주요특약 포함 원플랜",
+    strong: ["특약","원플랜"], // 녹색으로 강조할 단어
     points: ["피부·구강질환 등 주요특약을 포함한 균형잡힌 보험이에요."],
   },
 ];
@@ -95,6 +100,13 @@ export default function Features() {
   );
 }
 
+// 제목 속 강조 단어를 녹색(.feature-em)으로 감쌈
+function highlight(text, words = []) {
+  if (!words.length) return text;
+  const re = new RegExp(`(${words.join("|")})`);
+  return text.split(re).map((p, k) => (words.includes(p) ? <em key={k} className="feature-em">{p}</em> : p));
+}
+
 const PAW_COUNT = 10;
 
 // 오른쪽 발자국: 스크롤한 만큼 위에서 아래로 하나씩 찍힘 (왼발·오른발 번갈아)
@@ -140,7 +152,7 @@ function FeatureList({ open, onSelect }) {
                 <Fragment key={j}>
                   {j > 0 && <br className="m-br" />}
                   {j > 0 && <span className="pc-space"> </span>}
-                  {part}
+                  {highlight(part, f.strong)}
                 </Fragment>
               ))}
             </button>

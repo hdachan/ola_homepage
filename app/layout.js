@@ -32,6 +32,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ko">
       <head>
+        {/* 심의용 캡처 모드(?review=1): 숨은 내용을 모두 펼쳐 보이게 html 에 review 클래스 추가 */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if(/[?&]review=1/.test(location.search))document.documentElement.classList.add("review")`,
+          }}
+        />
         {/* Noto Sans KR (구글 폰트, 굵기 100~900) */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

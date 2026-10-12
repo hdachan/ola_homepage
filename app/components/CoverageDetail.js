@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import useReview from "./useReview";
 
 // 보장내용 섹션 하단: 보상 예시(표 2개) + 보상하는 손해 / 보상하지 않는 손해
 // 보험 안내 문구라 원문(상품 안내 이미지)을 그대로 옮김
@@ -169,6 +170,7 @@ function Dropdown({ id, title, children }) {
 
 export default function CoverageDetail() {
   const [tab, setTab] = useState(0);
+  const review = useReview(); // 심의용 캡처 모드: 사례 1·2 를 모두 펼쳐 보여줌
   return (
     <div className="cv">
       {/* 보상 예시 / 보상하는 손해 / 보상하지 않는 손해: 누르면 펼쳐지는 드롭다운 (분홍 톤) */}
@@ -189,7 +191,16 @@ export default function CoverageDetail() {
               </button>
             ))}
           </div>
-          <ExampleTable ex={EXAMPLES[tab]} />
+          {review ? (
+            EXAMPLES.map((ex) => (
+              <div key={ex.label} className="cv-review-case">
+                <p className="cv-review-label">{ex.label}</p>
+                <ExampleTable ex={ex} />
+              </div>
+            ))
+          ) : (
+            <ExampleTable ex={EXAMPLES[tab]} />
+          )}
         </Dropdown>
 
         <Dropdown id="cv-covered" title="보상하는 손해">

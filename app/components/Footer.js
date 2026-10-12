@@ -7,9 +7,10 @@ const QUICK_LINKS = [
   { href: "https://pf.kakao.com/_VsxgHn", label: "카카오톡", external: true },
 ];
 
+// 금융상품 필수 안내문 | 개인정보 처리방침
 const POLICY_LINKS = [
-  { href: "#", label: "개인정보 처리방침", strong: true },
-  { href: "#", label: "이용약관" },
+  { href: "/support/required/", label: "금융상품 필수 안내문" },
+  { href: "/privacy/", label: "개인정보 처리방침", strong: true },
 ];
 
 // 동그라미 안 오른쪽 화살표

@@ -1,3 +1,6 @@
 node_modules
 .next
 out
+
+# 심의용 PPT·캡처 (로컬에서만 사용)
+/심의자료/
