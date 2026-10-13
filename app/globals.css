@@ -1153,3 +1153,6 @@ h2.features-title { text-align: center; font-size: clamp(24px, 2.4vw, 34px); col
   .features-sticky { padding-top: 48px; padding-bottom: 32px; }
   .features-cat-m { padding-bottom: 52px; }
 }
+
+/* 공지사항: 제목 아래 줄 제거 (바로 아래 게시판 윗줄과 겹쳐 두 줄로 보이던 것) */
+.support-head.no-line { border-bottom: 0; }

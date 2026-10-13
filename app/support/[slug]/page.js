@@ -29,7 +29,7 @@ export default async function SupportPage({ params }) {
   if (slug === "notice") {
     return (
       <>
-        <div className="support-head">
+        <div className="support-head no-line">
           <h2>공지사항</h2>
         </div>
         <NoticeList />
@@ -54,7 +54,7 @@ export default async function SupportPage({ params }) {
       <>
         <div className="support-head">
           <h2>상담하기</h2>
-          <p>고객센터 1522-5179</p>
+          <p>상담원 채팅 및 전화 상담 평일 9시-18시 (기타 시간은 챗봇운영)</p>
         </div>
         {/* 왼쪽: 상담 카드 3개 / 오른쪽: 카드 쪽을 올려다보는 강아지 */}
         <div className="consult-layout">
