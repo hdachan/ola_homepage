@@ -5,6 +5,7 @@ import NoticeList from "./NoticeList";
 import ClaimInfo from "./ClaimInfo";
 import TermsInfo, { RequiredNotices } from "./TermsInfo";
 import ContactCards from "../../components/ContactCards";
+import { OG_BASE } from "../../site";
 
 export const dynamicParams = false;
 
@@ -12,12 +13,49 @@ export function generateStaticParams() {
   return SUPPORT_MENU.map((m) => ({ slug: m.slug }));
 }
 
+// 검색·공유 문구 (페이지별). 검색용 글에는 느낌표 없이 "올라펫보험"으로 표기
+const SEO = {
+  notice: {
+    title: "공지사항 | 올라펫보험",
+    description:
+      "올라펫보험의 새 소식과 이벤트를 안내해요. 가입 고객 대상 이마트·몰리스 쿠폰 등 혜택 소식을 확인하세요.",
+  },
+  consult: {
+    title: "상담하기 | 올라펫보험",
+    description:
+      "카카오톡 채팅, 전화(1522-5179), 메일로 올라펫보험 상담을 받아보세요. 상담원 채팅 및 전화 상담은 평일 9시-18시예요.",
+  },
+  faq: {
+    title: "자주 묻는 질문 | 올라펫보험",
+    description:
+      "가입 연령, 보장 시작일, 보험료, 갱신, 청구 방법 등 올라펫보험에 대해 자주 묻는 질문을 모았어요.",
+  },
+  claim: {
+    title: "보험금 청구 및 지급과정 | 올라펫보험",
+    description:
+      "올라펫보험 보험금 청구 절차와 필요 서류, 접수처(팩스·메일·우편·전화)를 안내해요. 진료일로부터 3년 이내 청구할 수 있어요.",
+  },
+  required: {
+    title: "금융상품 필수 안내사항 | 올라펫보험",
+    description:
+      "올라펫보험 가입 전 꼭 확인해야 할 금융상품 필수 안내사항과 예금자보호 관련 내용을 안내해요.",
+  },
+  terms: {
+    title: "약관 | 올라펫보험",
+    description:
+      "올라펫보험의 약관을 확인하고 PDF로 내려받을 수 있어요. 보장 내용과 보상하지 않는 손해 등 자세한 조건을 확인하세요.",
+  },
+};
+
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const item = SUPPORT_MENU.find((m) => m.slug === slug);
+  const { title, description } = SEO[slug];
+  const url = `/support/${slug}/`;
   return {
-    title: `${item?.label ?? "고객센터"} | 올라!펫보험 고객센터`,
-    alternates: { canonical: `/support/${slug}/` },
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: { ...OG_BASE, url, title, description },
   };
 }
 

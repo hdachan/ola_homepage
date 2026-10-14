@@ -2,22 +2,21 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import FloatingCta from "./components/FloatingCta";
-import { SITE_URL } from "./site";
+import { SITE_URL, OG_BASE } from "./site";
 
+// 검색·공유 문구 (메인). 검색용 글에는 느낌표 없이 "올라펫보험"으로 표기
 export const metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "올라!펫보험 | 우리 아이를 위한 반려동물 보험",
-  description: "올라!펫보험의 특장점과 보장예시를 확인하고 반려동물에게 꼭 맞는 보험을 준비하세요.",
+  title: "올라펫보험, 이마트와 DB손해보험이 함께하는 반려동물 보험",
+  description:
+    "이마트 몰리스와 DB손해보험이 함께하는 올라펫보험. 주요 특약포함 설계가 필요없는 원플랜, 새로운 반려생활에 타세요.",
   alternates: { canonical: "/" },
+  // 카카오톡·페이스북 등 링크 미리보기
   openGraph: {
-    type: "website",
-    locale: "ko_KR",
+    ...OG_BASE,
     url: "/",
-    siteName: "올라!펫보험",
-    title: "올라!펫보험",
-    description: "우리 아이를 위한 반려동물 보험",
-    // 카카오톡·페이스북 등 링크 미리보기 이미지 (1200×630)
-    images: [{ url: "/OG_BA.png", width: 1200, height: 630, alt: "올라!펫보험" }],
+    title: "새로운 반려생활의 시작 올라펫보험",
+    description: "이마트 몰리스와 DB손해보험이 함께하는 원플랜 올라펫보험으로 새로운 반려생활에 타세요.",
   },
   twitter: { card: "summary_large_image", images: ["/OG_BA.png"] },
   robots: { index: true, follow: true },

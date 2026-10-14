@@ -27,13 +27,13 @@ export default function Home() {
           <div className="hero-card">
             <p className="hero-eyebrow">이마트 몰리스 × DB손해보험</p>
             {/* 이 로고가 스크롤로 화면 위로 사라지면 상단바 가운데에 로고가 나타남 (Header.js) */}
-            <h2 className="hero-card-logo" id="hero-logo">
-              <img src="/ola_logo.svg" alt="올라!펫보험" />
-            </h2>
+            <h1 className="hero-card-logo" id="hero-logo">
+              <img src="/ola_logo.svg" alt="올라펫보험" />
+            </h1>
             <p className="hero-tagline">
               O Lovely Animal<span className="tail-exclamation">!</span>
             </p>
-            <h1 className="hero-headline">
+            <h2 className="hero-headline">
               새로운 반려생활에{" "}
               <em className="headline-end">
                 {/* 임시: "타" 글자 위 체크 표시 */}
@@ -43,7 +43,7 @@ export default function Home() {
                 {/* 타세요 오른쪽: 프리스비 무는 강아지 (absolute → 글자 위치에 영향 없음) */}
                 <img className="headline-dog" src="/pr_2.png" alt="" aria-hidden="true" />
               </em>
-            </h1>
+            </h2>
 
             <div className="hero-main">
               <p className="hero-sub">특약포함 설계가 필요없는 원플랜</p>

@@ -1,7 +1,15 @@
+import { OG_BASE } from "../site";
+
+const TITLE = "개인정보 처리방침 | 올라펫보험";
+const DESCRIPTION =
+  "올라펫보험 웹사이트의 개인정보 처리방침이에요. 본 사이트는 개인식별정보를 직접 수집하지 않으며, 가입 시 정보는 DB손해보험의 개인정보 처리방침에 따라 처리돼요.";
+
 // 개인정보 처리방침 (푸터 "개인정보 처리방침" 링크)
 export const metadata = {
-  title: "개인정보 처리방침 | 올라!펫보험",
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: "/privacy/" },
+  openGraph: { ...OG_BASE, url: "/privacy/", title: TITLE, description: DESCRIPTION },
 };
 
 export default function PrivacyPage() {
