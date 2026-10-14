@@ -165,7 +165,7 @@ export function RequiredNotices() {
 
       <h3>예금자보호안내문</h3>
       <div className="deposit-protect">
-        <img src="/protect.png" alt="예금보험공사 보호금융상품 1인당 최고 1억원" />
+        <img src="/protect_kdic.png" alt="예금보험공사 보호금융상품 1인당 최고 1억원" />
         <p>{DEPOSIT_PROTECTION}</p>
       </div>
     </section>
