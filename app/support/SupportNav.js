@@ -10,11 +10,11 @@ function useCurrent() {
   return SUPPORT_MENU.find((m) => pathname.startsWith(`/support/${m.slug}`)) ?? SUPPORT_MENU[0];
 }
 
+// 맨 위 큰 제목: 모든 고객센터 페이지에서 "고객센터" (페이지 이름은 아래 본문 제목에 표시)
 export function SupportBanner() {
-  const current = useCurrent();
   return (
     <div className="support-banner">
-      <h1>{current.label}</h1>
+      <h1>고객센터</h1>
     </div>
   );
 }
