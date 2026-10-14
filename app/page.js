@@ -3,10 +3,14 @@ import ContactCards from "./components/ContactCards";
 import DevTuner from "./components/DevTuner";
 import CoverageCopy from "./components/CoverageCopy";
 import CoverageDetail from "./components/CoverageDetail";
+import JsonLd, { HOME_JSON_LD } from "./components/JsonLd";
 
 export default function Home() {
   return (
     <>
+      {/* 구조화 데이터: 사이트 이름 + 회사·브랜드 정보 */}
+      <JsonLd data={HOME_JSON_LD} />
+
       {/* 개발용 위치 조정기: npm run dev 에서만 보임 */}
       {process.env.NODE_ENV === "development" && <DevTuner />}
 

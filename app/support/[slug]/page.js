@@ -6,6 +6,8 @@ import ClaimInfo from "./ClaimInfo";
 import TermsInfo, { RequiredNotices } from "./TermsInfo";
 import ContactCards from "../../components/ContactCards";
 import { OG_BASE } from "../../site";
+import JsonLd, { faqJsonLd, breadcrumbJsonLd } from "../../components/JsonLd";
+import { FAQ } from "./faqData";
 
 export const dynamicParams = false;
 
@@ -64,6 +66,17 @@ export default async function SupportPage({ params }) {
   const item = SUPPORT_MENU.find((m) => m.slug === slug);
   if (!item) notFound();
 
+  return (
+    <>
+      {/* 구조화 데이터: 경로(모든 페이지) + 자주 묻는 질문(FAQ 페이지만) */}
+      <JsonLd data={breadcrumbJsonLd(item.label, `/support/${slug}/`)} />
+      {slug === "faq" && <JsonLd data={faqJsonLd(FAQ)} />}
+      <SupportContent slug={slug} item={item} />
+    </>
+  );
+}
+
+function SupportContent({ slug, item }) {
   if (slug === "notice") {
     return (
       <>

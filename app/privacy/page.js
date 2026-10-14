@@ -1,4 +1,5 @@
 import { OG_BASE } from "../site";
+import JsonLd, { breadcrumbJsonLd } from "../components/JsonLd";
 
 const TITLE = "개인정보 처리방침 | 올라펫보험";
 const DESCRIPTION =
@@ -15,6 +16,7 @@ export const metadata = {
 export default function PrivacyPage() {
   return (
     <div className="container policy">
+      <JsonLd data={breadcrumbJsonLd("개인정보 처리방침", "/privacy/")} />
       <div className="support-banner">
         <h1>개인정보 처리방침</h1>
       </div>
