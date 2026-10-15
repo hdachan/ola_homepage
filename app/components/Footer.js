@@ -56,7 +56,7 @@ export default function Footer() {
             <p>
               메일주소: <a href="mailto:csolapet@gmail.com">csolapet@gmail.com</a>
             </p>
-            <p>보험대리점등록번호: 제 7725010001호</p>
+            <p>보험대리점등록번호: 제 7725090001호</p>
           </address>
           <ul className="footer-policy">
             {POLICY_LINKS.map((l) => (

@@ -150,15 +150,18 @@ function Dropdown({ id, title, children }) {
   const [open, setOpen] = useState(false);
   return (
     <div className={`cv-drop${open ? " is-open" : ""}`}>
-      <button type="button" className="cv-drop-head" aria-expanded={open} aria-controls={id} onClick={() => setOpen(!open)}>
-        <span className="cv-drop-title">{title}</span>
-        <span className="cv-drop-toggle" aria-hidden="true">
-          <svg width="14" height="14" viewBox="0 0 14 14">
-            <path d="M2 7h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-            <path className="cv-drop-vert" d="M7 2v10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-          </svg>
-        </span>
-      </button>
+      {/* 드롭다운 제목은 검색용 소제목(H3). 모양은 그대로 (.h-plain) */}
+      <h3 className="h-plain">
+        <button type="button" className="cv-drop-head" aria-expanded={open} aria-controls={id} onClick={() => setOpen(!open)}>
+          <span className="cv-drop-title">{title}</span>
+          <span className="cv-drop-toggle" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 14 14">
+              <path d="M2 7h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              <path className="cv-drop-vert" d="M7 2v10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+          </span>
+        </button>
+      </h3>
       <div className="cv-drop-body" id={id} role="region">
         <div className="cv-drop-inner">
           <div className="cv-drop-content">{children}</div>

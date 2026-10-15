@@ -3,7 +3,7 @@ const iconProps = { width: 40, height: 40, viewBox: "0 0 40 40", "aria-hidden": 
 
 const CONTACTS = [
   {
-    title: "카카오톡 상담",
+    title: "카카오톡 채널",
     desc: "채팅으로 편하게 물어보세요",
     href: "https://pf.kakao.com/_VsxgHn",
     external: true,

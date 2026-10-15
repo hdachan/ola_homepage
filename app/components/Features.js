@@ -144,22 +144,25 @@ function FeatureList({ open, onSelect }) {
         const isOpen = open === i;
         return (
           <li key={f.title} className={`feature-card${isOpen ? " is-open" : ""}`}>
-            <button
-              type="button"
-              className="feature-head"
-              aria-expanded={isOpen}
-              aria-controls={`feature-body-${i}`}
-              onClick={() => onSelect(i)}
-            >
-              {/* "|" 자리는 모바일에서만 줄바꿈 (PC에서는 띄어쓰기) */}
-              {f.title.split("|").map((part, j) => (
-                <Fragment key={j}>
-                  {j > 0 && <br className="m-br" />}
-                  {j > 0 && <span className="pc-space"> </span>}
-                  {highlight(part, f.strong)}
-                </Fragment>
-              ))}
-            </button>
+            {/* 카드 제목은 검색용 소제목(H3). 모양은 그대로 (.h-plain) */}
+            <h3 className="h-plain">
+              <button
+                type="button"
+                className="feature-head"
+                aria-expanded={isOpen}
+                aria-controls={`feature-body-${i}`}
+                onClick={() => onSelect(i)}
+              >
+                {/* "|" 자리는 모바일에서만 줄바꿈 (PC에서는 띄어쓰기) */}
+                {f.title.split("|").map((part, j) => (
+                  <Fragment key={j}>
+                    {j > 0 && <br className="m-br" />}
+                    {j > 0 && <span className="pc-space"> </span>}
+                    {highlight(part, f.strong)}
+                  </Fragment>
+                ))}
+              </button>
+            </h3>
             <div className="feature-body" id={`feature-body-${i}`} role="region">
               <div className="feature-body-inner">
                 <ul className="feature-points">
