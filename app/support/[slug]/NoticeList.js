@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useReview from "../../components/useReview";
 
 // 공지사항: 일반 게시판 형식 (목록: 번호·제목·등록일 → 제목을 누르면 글 보기 → 목록으로)
@@ -58,6 +58,19 @@ const NOTICES = [
 
 export default function NoticeList() {
   const [view, setView] = useState(null); // 보고 있는 글 번호 (null = 목록)
+
+  // 주소에 ?no=글번호 가 있으면 그 글을 바로 열기 (예: 메인 팝업 → /support/notice/?no=1)
+  useEffect(() => {
+    const no = Number(new URLSearchParams(location.search).get("no"));
+    const i = NOTICES.length - no;
+    if (no && i >= 0 && i < NOTICES.length) setView(i);
+  }, []);
+
+  // 목록으로 돌아갈 때 주소의 ?no= 도 지움 (새로고침 시 다시 글이 열리지 않게)
+  const backToList = () => {
+    setView(null);
+    if (location.search) history.replaceState(null, "", location.pathname);
+  };
   const review = useReview(); // 심의용 캡처 모드: 목록 아래에 모든 글 본문을 이어서 보여줌
 
   // 글 보기
@@ -74,7 +87,7 @@ export default function NoticeList() {
         </header>
         <div className="board-view-body notice-body">{n.body}</div>
         <div className="board-view-foot">
-          <button type="button" className="board-btn" onClick={() => setView(null)}>
+          <button type="button" className="board-btn" onClick={backToList}>
             목록
           </button>
         </div>

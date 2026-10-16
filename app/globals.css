@@ -1159,3 +1159,26 @@ h2.features-title { text-align: center; font-size: clamp(24px, 2.4vw, 34px); col
 
 /* 검색용 제목 태그(H3)로 감싼 버튼: 제목 기본 글꼴·크기를 없애 감싸기 전과 똑같이 보이게 함 */
 .h-plain { margin: 0; font: inherit; letter-spacing: inherit; }
+
+/* ===== 메인 이벤트 팝업 (EventPopup.js) ===== */
+.event-popup { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 16px; }
+.event-popup-dim { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.55); animation: ep-fade 0.25s ease-out; }
+.event-popup-box { position: relative; width: min(460px, 100%); animation: ep-rise 0.35s cubic-bezier(0.2, 0.8, 0.3, 1); }
+.event-popup-card { display: block; overflow: hidden; background: #e3f2ea; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25); }
+.event-popup-card img { display: block; width: 100%; height: auto; }
+.event-popup-text { padding: 20px 16px; background: #fde6d6; text-align: center; font-size: 16px; color: #6b6b6b; letter-spacing: -0.3px; }
+.event-popup-actions { display: flex; align-items: center; justify-content: center; gap: 40px; margin-top: 14px; }
+.event-popup-actions button { padding: 4px 8px; border: 0; background: none; font: inherit; font-size: 18px; color: #fff; cursor: pointer; }
+.event-popup-actions button:hover { text-decoration: underline; text-underline-offset: 4px; }
+.event-popup-bar { width: 1px; height: 18px; background: rgba(255, 255, 255, 0.85); }
+@keyframes ep-fade { from { opacity: 0; } }
+@keyframes ep-rise { from { opacity: 0; translate: 0 16px; } }
+@media (max-width: 768px) {
+  .event-popup-text { padding: 16px 12px; font-size: 14px; }
+  .event-popup-actions { gap: 28px; }
+  .event-popup-actions button { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) { .event-popup-dim, .event-popup-box { animation: none; } }
+/* 팝업 안에서 손가락으로 끌어도 뒤 화면이 따라 움직이지 않게 (모바일) */
+.event-popup { overscroll-behavior: contain; touch-action: none; }
+.event-popup-actions button, .event-popup-card { touch-action: manipulation; }
