@@ -39,8 +39,8 @@ const CONTACTS = [
   },
 ];
 
-// 고객센터 > 상담하기(chat)에서는 카카오톡 카드를 "카카오톡 채팅"으로, 누르면 바로 채팅창이 열리게 함
-const KAKAO_CHAT = { title: "카카오톡 채팅", href: "https://pf.kakao.com/_VsxgHn/chat" };
+// 고객센터 > 상담하기(chat)에서는 카카오톡 카드를 "카카오톡 상담"으로, 누르면 바로 채팅창이 열리게 함
+const KAKAO_CHAT = { title: "카카오톡 상담", desc: "카카오톡 상담 1:1로 문의하기", href: "https://pf.kakao.com/_VsxgHn/chat" };
 
 export default function ContactCards({ className = "", chat = false }) {
   const list = chat ? [{ ...CONTACTS[0], ...KAKAO_CHAT }, ...CONTACTS.slice(1)] : CONTACTS;
