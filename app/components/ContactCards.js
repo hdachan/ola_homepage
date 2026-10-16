@@ -39,10 +39,14 @@ const CONTACTS = [
   },
 ];
 
-export default function ContactCards({ className = "" }) {
+// 고객센터 > 상담하기(chat)에서는 카카오톡 카드를 "카카오톡 채팅"으로, 누르면 바로 채팅창이 열리게 함
+const KAKAO_CHAT = { title: "카카오톡 채팅", href: "https://pf.kakao.com/_VsxgHn/chat" };
+
+export default function ContactCards({ className = "", chat = false }) {
+  const list = chat ? [{ ...CONTACTS[0], ...KAKAO_CHAT }, ...CONTACTS.slice(1)] : CONTACTS;
   return (
     <ul className={`contact-list ${className}`.trim()}>
-      {CONTACTS.map((c) => (
+      {list.map((c) => (
         <li key={c.title}>
           <a className="contact-card" href={c.href} {...(c.external && { target: "_blank", rel: "noopener noreferrer" })}>
             <span className="contact-text">

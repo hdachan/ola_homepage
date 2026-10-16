@@ -109,7 +109,7 @@ function SupportContent({ slug, item }) {
         </div>
         {/* 왼쪽: 상담 카드 3개 / 오른쪽: 카드 쪽을 올려다보는 강아지 */}
         <div className="consult-layout">
-          <ContactCards className="support-contact" />
+          <ContactCards className="support-contact" chat />
           <img className="consult-dog" src="/ola_dog.png" alt="" aria-hidden="true" />
         </div>
       </>

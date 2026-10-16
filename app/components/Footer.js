@@ -4,7 +4,7 @@ import Logo from "./Logo";
 const QUICK_LINKS = [
   { href: "/support/terms/", label: "약관" },
   { href: "/support/notice/", label: "고객센터" },
-  { href: "https://pf.kakao.com/_VsxgHn", label: "카카오톡", external: true },
+  { href: "https://pf.kakao.com/_VsxgHn", label: "카카오톡 채널", external: true },
 ];
 
 // 금융상품 필수 안내문 | 개인정보 처리방침
