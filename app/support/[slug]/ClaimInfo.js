@@ -39,8 +39,11 @@ const DOCUMENTS = [
   },
 ];
 
-// 청구서 공통양식 파일: public 폴더에 이 이름으로 넣으면 다운로드됨
-const CLAIM_FORM_FILE = "/claim_form.pdf";
+// 보험금 청구서 양식: public 폴더의 파일 (download 값 = 내려받을 때 저장되는 파일 이름)
+const CLAIM_FORMS = [
+  { label: "질병 보험금 청구서 다운로드", href: "/claim_form_disease.pdf", file: "질병_보험금청구서(펫보험).pdf" },
+  { label: "배상책임 보험금 청구서 다운로드", href: "/claim_form_liability.pdf", file: "배상책임_보험금청구서(펫보험).pdf" },
+];
 
 function Toggle({ id, title, open, onToggle, children }) {
   return (
@@ -89,12 +92,17 @@ export default function ClaimInfo() {
               {d.note && <p className="claim-note">{d.note}</p>}
             </div>
           ))}
-          <a className="claim-download" href={CLAIM_FORM_FILE} download>
-            청구서 공통양식 다운로드
-            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
-              <path d="M8 2v8M4.5 6.5L8 10l3.5-3.5M3 13h10" fill="none" stroke="currentColor" strokeWidth="1.8" />
-            </svg>
-          </a>
+          {/* 청구서 2종: 양옆으로 나란히 (좁은 화면에서는 아래로 줄바꿈) */}
+          <div className="claim-downloads">
+            {CLAIM_FORMS.map((f) => (
+              <a key={f.href} className="claim-download" href={f.href} download={f.file}>
+                {f.label}
+                <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                  <path d="M8 2v8M4.5 6.5L8 10l3.5-3.5M3 13h10" fill="none" stroke="currentColor" strokeWidth="1.8" />
+                </svg>
+              </a>
+            ))}
+          </div>
         </Toggle>
 
         <Toggle id="claim-where" title="청구 접수처" open={open === "where"} onToggle={() => toggle("where")}>

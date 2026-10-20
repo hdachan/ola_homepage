@@ -653,6 +653,9 @@ h2.features-title { text-align: center; font-size: clamp(24px, 2.4vw, 34px); col
   background: var(--primary); color: #fff; font-size: 15px; font-weight: 700;
 }
 .claim-download:hover { background: #006b3b; }
+/* 청구서 다운로드 버튼 2개를 양옆으로 (버튼 각자의 위 여백 대신 묶음에 여백) */
+.claim-downloads { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.claim-downloads .claim-download { margin-top: 0; }
 .claim-where div { display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding: 10px 0; }
 .claim-where div + div { border-top: 1px solid #e8e8e4; }
 .claim-where dt { font-size: 15px; font-weight: 700; color: var(--text); }
