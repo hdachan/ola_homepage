@@ -22,8 +22,8 @@ export const metadata = {
   robots: { index: true, follow: true },
   // 구글 Search Console / 네이버 서치어드바이저에서 발급받은 코드로 교체
   verification: {
-    google: "GOOGLE_VERIFICATION_CODE",
-    other: { "naver-site-verification": "NAVER_VERIFICATION_CODE" },
+    google: "uv9UeHu26JyFB23pYiZGbU8aWWYST7FuuWv4oSGHDqA",
+    other: { "naver-site-verification": "8a1bfabbbea4be8b34c0458d30e2dd700af0da59" },
   },
 };
 
