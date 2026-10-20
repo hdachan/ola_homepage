@@ -55,7 +55,7 @@ export default function Home() {
 
             <div className="hero-main">
               <p className="hero-sub">특약포함 설계가 필요없는 원플랜</p>
-              {/* 시계(왼쪽)·청진기(오른쪽)가 버튼 양옆을 감싸 시선을 버튼으로 모음 */}
+              {/* 버튼 오른쪽: 청진기 장식 (왼쪽 시계 그림은 사용하지 않아 제거) */}
               <div className="btn-wrap">
                 <a
                   className="btn"
@@ -65,7 +65,6 @@ export default function Home() {
                 >
                   보험료 조회 및 가입
                 </a>
-                <img className="art-clock" src="/clock.png" alt="" aria-hidden="true" />
                 <img className="art-stetho" src="/stethoscope.png" alt="" aria-hidden="true" />
               </div>
             </div>

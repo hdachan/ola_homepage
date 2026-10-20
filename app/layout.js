@@ -2,7 +2,12 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import FloatingCta from "./components/FloatingCta";
+import Script from "next/script";
 import { SITE_URL, OG_BASE } from "./site";
+
+// 구글 애널리틱스(GA4) 측정 ID. 배포된 사이트에서만 수집 (npm run dev 에서는 꺼짐)
+const GA_ID = "G-BFSX0CE9FW";
+const GA_ON = process.env.NODE_ENV === "production";
 
 // 검색·공유 문구 (메인). 검색용 글에는 느낌표 없이 "올라펫보험"으로 표기
 export const metadata = {
@@ -50,6 +55,16 @@ export default function RootLayout({ children }) {
         <main>{children}</main>
         <Footer />
         <FloatingCta />
+
+        {/* 구글 애널리틱스(GA4): 페이지가 뜬 뒤에 불러와 첫 화면 속도에 영향 없음 */}
+        {GA_ON && (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+            <Script id="ga4" strategy="afterInteractive">
+              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","${GA_ID}");`}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );
