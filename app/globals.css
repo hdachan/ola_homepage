@@ -465,6 +465,8 @@ address { font-style: normal; }
 }
 .footer-quick a:hover { text-decoration: underline; }
 .copyright { color: #999; font-size: 13px; }
+/* 심의필 번호: Copyright 바로 위에 딱 붙임 (Footer.js 에서 같은 묶음 안에 둠) */
+.review-no { color: #999; font-size: 13px; }
 .footer-right { text-align: right; display: flex; flex-direction: column; gap: 20px; }
 .company { color: #666; font-size: 14px; line-height: 1.65; }
 .company a:hover { color: var(--primary); }

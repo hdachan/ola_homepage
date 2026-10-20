@@ -10,7 +10,7 @@ const QUICK_LINKS = [
 // 금융상품 필수 안내문 | 개인정보 처리방침
 const POLICY_LINKS = [
   { href: "/support/required/", label: "금융상품 필수 안내문" },
-  { href: "/privacy/", label: "개인정보 처리방침", strong: true },
+  { href: "/privacy/", label: "개인정보 처리방침" },
 ];
 
 // 동그라미 안 오른쪽 화살표
@@ -36,7 +36,12 @@ export default function Footer() {
               </li>
             ))}
           </ul>
-          <p className="copyright">Copyright © 올라!펫보험 All rights reserved.</p>
+          {/* 심의필 + Copyright 를 한 묶음으로 → 두 줄 사이 간격 없이 붙음 */}
+          <div>
+            {/* 보험 광고 심의필: 유효기간이 끝나면 새 번호로 교체 */}
+            <p className="review-no">준법감시인확인필 제2026-17092호(2026.10.20~2027.10.19)</p>
+            <p className="copyright">Copyright © 올라!펫보험 All rights reserved.</p>
+          </div>
         </div>
 
         <div className="footer-right">
