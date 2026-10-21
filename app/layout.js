@@ -15,7 +15,8 @@ export const metadata = {
   title: "올라펫보험, 이마트와 DB손해보험이 함께하는 반려동물 보험",
   description:
     "이마트 몰리스와 DB손해보험이 함께하는 올라펫보험. 주요 특약포함 설계가 필요없는 원플랜, 새로운 반려생활에 타세요.",
-  alternates: { canonical: "/" },
+  // canonical + RSS 주소 알림 (<link rel="alternate" type="application/rss+xml">)
+  alternates: { canonical: "/", types: { "application/rss+xml": "/rss.xml" } },
   // 카카오톡·페이스북 등 링크 미리보기
   openGraph: {
     ...OG_BASE,
