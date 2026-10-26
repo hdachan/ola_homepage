@@ -33,7 +33,7 @@ export const NOTICES = [
             <dt>받는 방법</dt>
             <dd>
               <a href="https://pf.kakao.com/_VsxgHn" target="_blank" rel="noopener noreferrer">
-                카카오톡 채팅방
+                카카오톡 상담
               </a>
               에 증권번호나 성함을 남겨주세요.
             </dd>
@@ -43,7 +43,7 @@ export const NOTICES = [
             <dd>
               고객센터 <a href="tel:1522-5179">1522-5179</a> /{" "}
               <a href="https://pf.kakao.com/_VsxgHn" target="_blank" rel="noopener noreferrer">
-                카카오톡 채팅
+                카카오톡 상담
               </a>
             </dd>
           </div>
