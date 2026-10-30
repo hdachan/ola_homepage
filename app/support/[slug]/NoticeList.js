@@ -32,7 +32,6 @@ export default function NoticeList() {
         <header className="board-view-head">
           <h3>{n.title}</h3>
           <p className="board-meta">
-            <span>관리자</span>
             <span>{n.date}</span>
           </p>
         </header>
@@ -81,7 +80,6 @@ export default function NoticeList() {
             <header className="board-view-head">
               <h3>{n.title}</h3>
               <p className="board-meta">
-                <span>관리자</span>
                 <span>{n.date}</span>
               </p>
             </header>
