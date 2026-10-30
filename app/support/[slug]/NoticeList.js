@@ -61,7 +61,8 @@ export default function NoticeList() {
           </tr>
         </thead>
         <tbody>
-          {NOTICES.map((n, i) => (
+          {/* 번호 1번(가장 오래된 글)부터 위에서 아래로 */}
+          {NOTICES.map((n, i) => ({ n, i })).reverse().map(({ n, i }) => (
             <tr key={n.title}>
               <td className="board-no">{NOTICES.length - i}</td>
               <td className="board-title">
@@ -75,7 +76,7 @@ export default function NoticeList() {
         </tbody>
       </table>
       {review &&
-        NOTICES.map((n) => (
+        [...NOTICES].reverse().map((n) => (
           <article key={n.title} className="board-view board-review">
             <header className="board-view-head">
               <h3>{n.title}</h3>

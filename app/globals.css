@@ -967,6 +967,18 @@ h2.features-title { text-align: center; font-size: clamp(24px, 2.4vw, 34px); col
 .notice-info dt { font-weight: 600; color: #222; }
 .notice-info dd { margin: 0; word-break: keep-all; }
 .notice-info a { color: var(--primary); text-decoration: underline; text-underline-offset: 3px; }
+/* 사운드 라이브러리: 곡마다 카드 (제목 · 설명 · 듣기 · 다운로드) */
+.notice-sounds { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+.notice-sound {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
+  padding: 20px 22px; border-radius: 14px; background: #f7f7f5;
+}
+.notice-sound strong { font-size: 17px; font-weight: 600; color: #222; }
+.notice-sound span { word-break: keep-all; }
+.notice-track { display: flex; flex-direction: column; align-items: flex-start; width: 100%; }
+.notice-track em { margin-top: 14px; font-style: normal; font-size: 14px; font-weight: 600; color: #444; }
+.notice-sound audio { width: 100%; max-width: 420px; height: 40px; margin-top: 10px; }
+.notice-sound .claim-download { margin-top: 12px; padding: 10px 20px; font-size: 14px; }
 @media (max-width: 768px) {
   .notice-coupons { grid-template-columns: 1fr; }
   .notice-info div { grid-template-columns: 1fr; gap: 0; }
