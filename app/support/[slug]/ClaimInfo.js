@@ -40,7 +40,7 @@ const DOCUMENTS = [
 
 // 보험금 청구서 양식: public 폴더의 파일 (download 값 = 내려받을 때 저장되는 파일 이름)
 const CLAIM_FORMS = [
-  { label: "질병 보험금 청구서 다운로드", href: "/claim_form_disease.pdf", file: "질병_보험금청구서(펫보험).pdf" },
+  { label: "질병/상해 보험금 청구서 다운로드", href: "/claim_form_disease.pdf", file: "질병_보험금청구서(펫보험).pdf" },
   { label: "배상책임 보험금 청구서 다운로드", href: "/claim_form_liability.pdf", file: "배상책임_보험금청구서(펫보험).pdf" },
 ];
 
