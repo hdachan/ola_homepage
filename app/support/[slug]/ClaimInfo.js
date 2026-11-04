@@ -108,7 +108,7 @@ export default function ClaimInfo() {
           <dl className="claim-where">
             <div>
               <dt>대표 팩스 접수</dt>
-              <dd>0505-181-4862</dd>
+              <dd>0505-181-4660</dd>
             </div>
             <div>
               <dt>메일 접수</dt>
