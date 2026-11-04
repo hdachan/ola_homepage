@@ -113,7 +113,7 @@ export default function ClaimInfo() {
             <div>
               <dt>메일 접수</dt>
               <dd>
-                <a href="mailto:petmail@dbins.co.kr">petmail@dbins.co.kr</a>
+                <a href="mailto:petmail@dbins.net">petmail@dbins.net</a>
               </dd>
             </div>
             <div>
